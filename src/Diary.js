@@ -1,5 +1,7 @@
 export default class Diary {
     #entries = [];
 
-    getEntries = () => { this.#entries };
+    getEntries = () => {
+        return this.#entries;
+    };
 };

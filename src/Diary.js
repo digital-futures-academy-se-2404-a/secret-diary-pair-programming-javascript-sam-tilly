@@ -6,6 +6,8 @@ export default class Diary {
     };
 
     addEntry = (entry) => {
-        this.#entries.push(entry);
+        if (entry != null) {
+            this.#entries.push(entry);
+        };
     }
 };

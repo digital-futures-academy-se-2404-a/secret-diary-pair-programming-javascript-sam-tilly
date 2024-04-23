@@ -54,8 +54,20 @@ describe("Diary Entry Tests", () => {
             expect(testDiary.getEntries().length).toBe(expected);
         });
         it("should be able to print out all of the diary entries", () => {
-            
-        })
+            // Arrange
+            let clgSpy = spyOn(console, 'log').and.callThrough();
+            testDiary.addEntry("Dear diary 1");
+            testDiary.addEntry("Dear diary 2");
+            testDiary.addEntry("Dear diary 3");
+            expected = testDiary.getEntries().length;
+
+            // Act
+            testDiary.viewEntries();
+
+            //Assert
+            expect((clgSpy).toHaveBeenCalledTimes(expected));
+            clgSpy.calls.reset();
+        });
     });
 });
     

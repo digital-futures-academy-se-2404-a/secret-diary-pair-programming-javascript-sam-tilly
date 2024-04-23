@@ -1,3 +1,5 @@
+import Diary from "../src/Diary.js"
+
 describe("Diary Entry Tests", () => {
     it("should be able to increase the number of entries when addEntry is called", () => {
         // Arrange

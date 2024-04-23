@@ -4,4 +4,8 @@ export default class Diary {
     getEntries = () => {
         return this.#entries;
     };
+
+    addEntry = (entry) => {
+        this.#entries.push(entry);
+    }
 };

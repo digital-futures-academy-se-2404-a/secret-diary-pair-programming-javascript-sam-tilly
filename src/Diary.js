@@ -9,5 +9,10 @@ export default class Diary {
         if (entry != null) {
             this.#entries.push(entry);
         };
-    }
+    };
+    viewEntries = () => {
+        this.#entries.forEach(element => {
+            console.log(element);
+        });
+    };
 };

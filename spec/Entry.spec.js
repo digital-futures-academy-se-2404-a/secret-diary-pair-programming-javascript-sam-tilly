@@ -1,3 +1,5 @@
+import Entry from "../src/Entry.js";
+
 describe("Diary Entry Tests", () => {
     it("getContents should return entry contents", () => {
         // Arrange
@@ -8,5 +10,4 @@ describe("Diary Entry Tests", () => {
         // Assert
         expect(entry.getContents()).toBe(testEntry);
     });
-
 });

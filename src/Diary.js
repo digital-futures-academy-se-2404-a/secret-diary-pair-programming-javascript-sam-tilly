@@ -10,9 +10,14 @@ export default class Diary {
             this.#entries.push(entry);
         };
     };
-    viewEntries = () => {
-        this.#entries.forEach(element => {
-            console.log(element);
+
+    printEntries = () => {
+        // for each entry in entries we want to console log entry.getContents
+        this.#entries.forEach(entry => {
+            console.log(entry.getContents());
+            
         });
     };
+    resetNumberOfEntriesPrinted = () => {}
+
 };

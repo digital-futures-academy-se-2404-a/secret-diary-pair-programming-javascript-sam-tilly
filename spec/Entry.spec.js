@@ -1,6 +1,6 @@
 import Entry from "../src/Entry.js";
 
-describe("Diary Entry Tests", () => {
+describe("Entry Tests", () => {
     it("getContents should return entry contents", () => {
         // Arrange
         let testEntry = "Dear Diary";

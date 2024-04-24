@@ -5,6 +5,9 @@ let testDiary, testEntry, expected, testEntry2, testEntry3;
 describe("Diary Entry Tests", () => {
     beforeEach(() => {
         testDiary = new Diary();
+        testEntry = jasmine.createSpyObj("testEntry", {
+            getContents: "Dear Diary",
+        });
     });
 
     afterEach(() => {
@@ -17,9 +20,6 @@ describe("Diary Entry Tests", () => {
     describe("Add Entry Tests", () => {
         it("should be able to increase the number of entries when addEntry is called", () => {
             // Arrange
-            testEntry = jasmine.createSpyObj("testEntry", {
-                getContents: "Dear Diary",
-            });
             expected = testDiary.getEntries().length + 1;
             // Act
             testDiary.addEntry(testEntry);
@@ -28,9 +28,6 @@ describe("Diary Entry Tests", () => {
         });
         it("should add the same entry to the entries as is entered", () => {
             // Arrange
-            testEntry = jasmine.createSpyObj("testEntry", {
-                getContents: "Dear Diary",
-            });
             expected = testEntry;
             // Act
             testDiary.addEntry(testEntry);
@@ -54,9 +51,6 @@ describe("Diary Entry Tests", () => {
     describe("Get Entry Tests", () => {
         it("should be able to fetch all of the diary entries", () => {
             // Arrange
-            testEntry = jasmine.createSpyObj("testEntry", {
-                getContents: "Dear Diary",
-            });
             testEntry2 = jasmine.createSpyObj("testEntry2", {
                 getContents: "Dear Diary 2",
             });
@@ -77,20 +71,21 @@ describe("Diary Entry Tests", () => {
     describe("Print Entry Tests", () => {
         it("should call the entry's getContents method when printEntries is called", () => {
             // Arrange
+            testDiary.addEntry(testEntry);
             // Act
-            DiaryPrinter.printEntry(testEntry);
+            testDiary.printEntries();
             // Assert
-            expect(testEntry.printEntry).toHaveBeenCalled();
+            expect(testEntry.getContents).toHaveBeenCalled();
         });
     
         afterEach(() => {
-            DiaryPrinter.resetNumberOfEntriesPrinted();
+            testDiary.resetNumberOfEntriesPrinted();
         });
     });
 
-    describe("Print All Entries Tests", () => {
+//     describe("Print All Entries Tests", () => {
 
-    });
+//     });
 });
     
 
